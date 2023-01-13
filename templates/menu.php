@@ -33,8 +33,7 @@ if (str_contains($_SERVER['SCRIPT_FILENAME'], $filename)) {
                     <a href="file-manager.html"><i class="material-icons-two-tone">military_tech</i>Achievements</a>
                 </li>
                 <li>
-                    <a href="calendar.html"><i class="material-icons-two-tone">calendar_today</i>Calendar<span
-                                class="badge rounded-pill badge-success float-end">14</span></a>
+                    <a href="/points.php"><i class="material-icons-two-tone">payments</i>PunkteSystem</a>
                 </li>
                 <li>
                     <a href="/settings.php"><i class="material-icons-two-tone">settings</i>Settings</a>

@@ -68,7 +68,7 @@ include "templates/head.html";
                 <label for="signInEmail" class="form-label">E-Mail / Username</label>
                 <input name="email" type="text" class="form-control m-b-md" id="signInEmail"
                        aria-describedby="signInEmail"
-                       placeholder="example@neptune.com">
+                       placeholder="example@sensivity.team">
                 <label for="signInEmail" class="form-label">Passwort</label>
                 <input name="passwort" type="password" class="form-control m-b-md" id="signInEmail"
                        aria-describedby="signInEmail"

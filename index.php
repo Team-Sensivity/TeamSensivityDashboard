@@ -36,14 +36,14 @@ include "templates/menu.php";
                 <?php
                 include "module/stats.php";
                 ?>
+                <?php
+                include "module/online-time.php";
+                ?>
                 <div class="row">
                     <?php
                     include "module/achievement.php";
                     ?>
                 </div>
-                <?php
-                include "module/online-time.php";
-                ?>
                 <div class="row">
                     <div class="col-xl-4">
                         <div class="card">
@@ -120,36 +120,6 @@ include "templates/menu.php";
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4">
-                        <div class="card widget">
-                            <div class="card-header">
-                                <h5 class="card-title">Share this Link</h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="text-muted d-block">This link will be opened in a new window</p>
-                                <div class="input-group">
-                                    <input type="text" class="form-control form-control-solid-bordered"
-                                           value="https://themeforest.net/user/stacks/portfolio"
-                                           aria-label="https://themeforest.net/user/stacks/portfolio"
-                                           aria-describedby="share-link1">
-                                    <button class="btn btn-primary" type="button" id="share-link1"><i
-                                                class="material-icons no-m fs-5">content_copy</i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card widget widget-info">
-                            <div class="card-body">
-                                <div class="widget-info-container">
-                                    <div class="widget-info-image"
-                                         style="background: url('../../assets/images/widgets/security.svg')"></div>
-                                    <h5 class="widget-info-title">Advanced Security</h5>
-                                    <p class="widget-info-text m-t-n-xs">Nunc cursus tempor sapien, et mattis libero
-                                        dapibus ut. Ut a ante sit amet arcu imperdiet accumsan.</p>
-                                    <a href="#" class="btn btn-primary widget-info-action">Upgrade Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-8">
@@ -174,40 +144,6 @@ include "templates/menu.php";
                                             Date: 6:38 PM
                                         </span>
                                 <a href="#" class="btn btn-primary float-end">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4">
-                        <div class="card widget widget-connection-request">
-                            <div class="card-header">
-                                <h5 class="card-title">Connection Request<span
-                                            class="badge badge-secondary badge-style-light">17 min ago</span></h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="widget-connection-request-container d-flex">
-                                    <div class="widget-connection-request-avatar">
-                                        <div class="avatar avatar-xl m-r-xs">
-                                            <img src="../../assets/images/avatars/avatar.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="widget-connection-request-info flex-grow-1">
-                                                <span class="widget-connection-request-info-name">
-                                                    Woodrow Hawkins
-                                                </span>
-                                        <span class="widget-connection-request-info-count">
-                                                    45 mutual connections
-                                                </span>
-                                        <span class="widget-connection-request-info-about">
-                                                    Senior Go Developer at Google
-                                                </span>
-                                    </div>
-                                </div>
-                                <div class="widget-connection-request-actions d-flex">
-                                    <a href="#" class="btn btn-primary btn-style-light flex-grow-1 m-r-xxs"><i
-                                                class="material-icons">done</i>Accept</a>
-                                    <a href="#" class="btn btn-danger btn-style-light flex-grow-1 m-l-xxs"><i
-                                                class="material-icons">close</i>Ignore</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -264,6 +200,113 @@ if($user["modal"] == 0){
 </script>
     ";
 }
+
+if(date("N", strtotime("now")) == 1){
+    $montag = "now";
+    $montag1 = "-7 day";
+    $dienstag = "+1 day";
+    $dienstag1 = "-6 day";
+    $mittwoch = "+2 day";
+    $mittwoch1 = "-5 day";
+    $donnerstag = "+3 day";
+    $donnerstag1 = "-4 day";
+    $freitag = "+4 day";
+    $freitag1 = "-3 day";
+    $samstag = "+5 day";
+    $samstag1 = "-2 day";
+    $sonntag = "+6 day";
+    $sonntag1 = "-1 day";
+}else if(date("N", strtotime("now")) == 2){
+    $montag = "-1 day";
+    $montag1 = "-8 day";
+    $dienstag = "now";
+    $dienstag1 = "-7 day";
+    $mittwoch = "+1 day";
+    $mittwoch1 = "-6 day";
+    $donnerstag = "+2 day";
+    $donnerstag1 = "-5 day";
+    $freitag = "+3 day";
+    $freitag1 = "-4 day";
+    $samstag = "+4 day";
+    $samstag1 = "-3 day";
+    $sonntag = "+5 day";
+    $sonntag1 = "-2 day";
+}else if(date("N", strtotime("now")) == 3){
+    $montag = "-2 day";
+    $montag1 = "-9 day";
+    $dienstag = "-1 day";
+    $dienstag1 = "-8 day";
+    $mittwoch = "now";
+    $mittwoch1 = "-7 day";
+    $donnerstag = "+1 day";
+    $donnerstag1 = "-6 day";
+    $freitag = "+2 day";
+    $freitag1 = "-5 day";
+    $samstag = "+3 day";
+    $samstag1 = "-4 day";
+    $sonntag = "+4 day";
+    $sonntag1 = "-3 day";
+}else if(date("N", strtotime("now")) == 4){
+    $montag = "-3 day";
+    $montag1 = "-10 day";
+    $dienstag = "-2 day";
+    $dienstag1 = "-9 day";
+    $mittwoch = "-1 day";
+    $mittwoch1 = "-8 day";
+    $donnerstag = "now";
+    $donnerstag1 = "-7 day";
+    $freitag = "+1 day";
+    $freitag1 = "-6 day";
+    $samstag = "+2 day";
+    $samstag1 = "-5 day";
+    $sonntag = "+3 day";
+    $sonntag1 = "-4 day";
+}else if(date("N", strtotime("now")) == 5){
+    $montag = "-4 day";
+    $montag1 = "-11 day";
+    $dienstag = "-3 day";
+    $dienstag1 = "-10 day";
+    $mittwoch = "-2 day";
+    $mittwoch1 = "-9 day";
+    $donnerstag = "-1 day";
+    $donnerstag1 = "-8 day";
+    $freitag = "now";
+    $freitag1 = "-7 day";
+    $samstag = "+1 day";
+    $samstag1 = "-6 day";
+    $sonntag = "+2 day";
+    $sonntag1 = "-5 day";
+}else if(date("N", strtotime("now")) == 6){
+    $montag = "-5 day";
+    $montag1 = "-12 day";
+    $dienstag = "-4 day";
+    $dienstag1 = "-11 day";
+    $mittwoch = "-3 day";
+    $mittwoch1 = "-10 day";
+    $donnerstag = "-2 day";
+    $donnerstag1 = "-9 day";
+    $freitag = "-1 day";
+    $freitag1 = "-8 day";
+    $samstag = "now";
+    $samstag1 = "-7 day";
+    $sonntag = "+1 day";
+    $sonntag1 = "-6 day";
+}else if(date("N", strtotime("now")) == 7){
+    $montag = "-6 day";
+    $montag1 = "-13 day";
+    $dienstag = "-5 day";
+    $dienstag1 = "-12 day";
+    $mittwoch = "-4 day";
+    $mittwoch1 = "-11 day";
+    $donnerstag = "-3 day";
+    $donnerstag1 = "-10 day";
+    $freitag = "-2 day";
+    $freitag1 = "-9 day";
+    $samstag = "-1 day";
+    $samstag1 = "-8 day";
+    $sonntag = "now";
+    $sonntag1 = "-7 day";
+}
 ?>
 <script>
     var options1 = {
@@ -292,12 +335,12 @@ if($user["modal"] == 0){
         },
         series: [{
             name: 'Diese Woche',
-            data: [44, 55, 57, 56, 61, 58, 63]
+            data: [<?php echo getDayMinutes($user["discord_id"], $montag) ?>, <?php echo getDayMinutes($user["discord_id"], $dienstag) ?>, <?php echo getDayMinutes($user["discord_id"], $mittwoch) ?>, <?php echo getDayMinutes($user["discord_id"], $donnerstag) ?>, <?php echo getDayMinutes($user["discord_id"], $freitag) ?>, <?php echo getDayMinutes($user["discord_id"], $samstag) ?>, <?php echo getDayMinutes($user["discord_id"], $sonntag) ?>]
         }, {
             name: 'Letzte Woche',
-            data: [76, 85, 101, 98, 87, 105, 91]
+            data: [<?php echo getDayMinutes($user["discord_id"], $montag1) ?>, <?php echo getDayMinutes($user["discord_id"], $dienstag1) ?>, <?php echo getDayMinutes($user["discord_id"], $mittwoch1) ?>, <?php echo getDayMinutes($user["discord_id"], $donnerstag1) ?>, <?php echo getDayMinutes($user["discord_id"], $freitag1) ?>, <?php echo getDayMinutes($user["discord_id"], $samstag1) ?>, <?php echo getDayMinutes($user["discord_id"], $sonntag1) ?>]
         }, {
-            name: 'Durchschnitt',
+            name: 'Minecraft',
             data: [35, 41, 36, 26, 45, 48, 52]
         }],
         xaxis: {
@@ -335,6 +378,47 @@ if($user["modal"] == 0){
     );
 
     chart1.render();
+
+    var options2 = {
+        chart: {
+            id: 'sparkline1',
+            type: 'area',
+            height: 80,
+            sparkline: {
+                enabled: true
+            },
+        },
+        stroke: {
+            curve: 'smooth'
+        },
+        fill: {
+            opacity: 1,
+        },
+        series: [{
+            name: 'Punkte erhalten',
+            data: [<?php $stmt = $pdo->query("SELECT * FROM online ORDER BY firstDate DESC");
+            $min = 0;
+                while ($row = $stmt->fetch()) {
+                    if($row["discord_Id"] == $user["discord_id"]){
+                        if($min < $row["minuten"]) {
+                            $min = $row["minuten"];
+                        }
+
+                        echo $row["minuten"].',';
+                    }
+                }
+                ?>]
+        }],
+        labels: [1, 2, 3],
+        yaxis: {
+            min: 0,
+            max: <?php echo $min + 100; ?>
+        },
+        colors: ['#FFDDB8']
+    }
+
+    var chart2 = new ApexCharts(document.querySelector("#widget-stats-chart1"), options2);
+    chart2.render();
 </script>
 </body>
 </html>

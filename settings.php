@@ -82,7 +82,7 @@ if (isset($_GET["steam_id"])) {
 } else if (isset($_GET["riot_id"])) {
     $summonername = $_GET["riot_id"];
 
-    $url = 'https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/michel929?api_key=RGAPI-7627e4dc-3fcb-4675-96d1-e31c9e079c4c';
+    $url = 'https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/'.$summonername.'?api_key=RGAPI-7627e4dc-3fcb-4675-96d1-e31c9e079c4c';
     $xmlurl = file_get_contents($url);
     $riot_array = json_decode($xmlurl, TRUE);
 

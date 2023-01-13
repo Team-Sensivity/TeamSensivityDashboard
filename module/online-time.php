@@ -6,7 +6,7 @@
                     <div class="widget-stats-large-chart-container">
                         <div class="card-header">
                             <h5 class="card-title">Online Time<span
-                                        class="badge badge-light badge-style-light">Letzte Woche</span>
+                                        class="badge badge-light badge-style-light">Diese Woche</span>
                             </h5>
                         </div>
                         <div class="card-body">
@@ -79,3 +79,4 @@
         </div>
     </div>
 </div>
+

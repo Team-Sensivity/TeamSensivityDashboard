@@ -14,24 +14,27 @@ include_once("password.inc.php");
 function getLatestGesamt($id)
 {
     global $pdo;
-    $stmt = $pdo->query("SELECT * FROM online ORDER BY date DESC");
+    $min = 0;
+    $stmt = $pdo->query("SELECT * FROM online ORDER BY firstDate DESC");
     while ($row = $stmt->fetch()) {
-        if ($id == $row["discord_id"]) {
-            return $row["gesamt"];
+        if ($id == $row["discord_Id"]) {
+            $min = $min + $row["minuten"];
         }
     }
+
+    return $min;
 }
 
 function getLastMonth($id)
 {
     global $pdo;
     $i = 0;
-    $stmt = $pdo->query("SELECT * FROM online ORDER BY date DESC");
+    $stmt = $pdo->query("SELECT * FROM online ORDER BY firstDate DESC");
     while ($row = $stmt->fetch()) {
-        if ($id == $row["discord_id"]) {
-            $datum = explode("-", $row["date"]);
+        if ($id == $row["discord_Id"]) {
+            $datum = explode("-", $row["firstDate"]);
             if ($datum[1] == date("m", strtotime("-1 month"))) {
-                $i = $i + $row["min"];
+                $i = $i + $row["mminuten"];
             }
         }
     }
@@ -43,12 +46,29 @@ function getNowMonth($id)
 {
     global $pdo;
     $i = 0;
-    $stmt = $pdo->query("SELECT * FROM online ORDER BY date DESC");
+    $stmt = $pdo->query("SELECT * FROM online ORDER BY firstDate DESC");
     while ($row = $stmt->fetch()) {
-        if ($id == $row["discord_id"]) {
-            $datum = explode("-", $row["date"]);
+        if ($id == $row["discord_Id"]) {
+            $datum = explode("-", $row["firstDate"]);
             if ($datum[1] == date("m", strtotime("now"))) {
-                $i = $i + $row["min"];
+                $i = $i + $row["minuten"];
+            }
+        }
+    }
+
+    return $i;
+}
+
+function getDayMinutes($id, $day)
+{
+    global $pdo;
+    $i = 0;
+    $stmt = $pdo->query("SELECT * FROM online ORDER BY firstDate DESC");
+    while ($row = $stmt->fetch()) {
+        if ($id == $row["discord_Id"]) {
+            $datum = explode("-", $row["firstDate"]);
+            if ($datum[1] == date("m", strtotime($day)) && substr($datum[2], 0, 2) == date("d", strtotime($day)) && $datum[0] == date("Y", strtotime($day))) {
+                $i = $i + $row["minuten"];
             }
         }
     }
@@ -119,7 +139,7 @@ function check_user()
 
 
     if (!isset($_SESSION['userid']) && !isset($_SESSION['discord_id'])) {
-        die('Bitte zuerst <a href="/login.php">einloggen</a>');
+        header("Location: /login.php");
     }
 
 

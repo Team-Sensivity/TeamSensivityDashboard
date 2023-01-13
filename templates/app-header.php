@@ -69,12 +69,12 @@
                     <li class="nav-item hidden-on-mobile">
                         <a class="nav-link <?php if (!str_contains($_SERVER['SCRIPT_FILENAME'], "turnier")) {
                             echo "active";
-                        } ?>" href="/dashboard">Dashboard</a>
+                        } ?>" href="https://dashboard.sensivity.team">Dashboard</a>
                     </li>
                     <li class="nav-item hidden-on-mobile">
                         <a class="nav-link <?php if (str_contains($_SERVER['SCRIPT_FILENAME'], "turnier")) {
                             echo "active";
-                        } ?>" href="#">TurnierSystem</a>
+                        } ?>" href="https://turnier.sensivity.team">TurnierSystem</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link toggle-search" href="#"><i class="material-icons">search</i></a>
