@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="widget-stats-chart">
-                    <div id="widget-stats-chart1"></div>
+                    <div id="widget-stats-chart1" style="margin-bottom: 10px;"></div>
                 </div>
             </div>
         </div>

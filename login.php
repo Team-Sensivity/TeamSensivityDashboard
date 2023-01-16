@@ -65,7 +65,7 @@ include "templates/head.html";
         ?>
         <form action="login.php" method="post">
             <div class="auth-credentials m-b-xxl">
-                <label for="signInEmail" class="form-label">E-Mail / Username</label>
+                <label for="signInEmail" class="form-label">E-Mail</label>
                 <input name="email" type="text" class="form-control m-b-md" id="signInEmail"
                        aria-describedby="signInEmail"
                        placeholder="example@sensivity.team">
@@ -82,9 +82,7 @@ include "templates/head.html";
         </form>
         <div class="divider"></div>
         <div class="auth-alts">
-            <a href="#" class="auth-alts-google"></a>
-            <a href="#" class="auth-alts-facebook"></a>
-            <a href="#" class="auth-alts-twitter"></a>
+            <a href="/discord-login.php" class="auth-alts-google"></a>
         </div>
     </div>
 </div>

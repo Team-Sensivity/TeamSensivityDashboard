@@ -10,6 +10,36 @@ $dbd = 0;
 $active = "";
 $id = $user["id"];
 
+//UpdateURL
+if (isset($_POST["url"])){
+    $url = $_POST["url"];
+    $error = 0;
+
+    $stmt = $pdo->query("SELECT * FROM users");
+
+    while ($row = $stmt->fetch()) {
+        if($row["website_url"] == $url){
+            $error = 1;
+        }
+    }
+
+    if($error == 1){
+        $alert = '<div class="alert alert-danger alert-style-light" role="alert">
+                        Benutzernamen schon vergeben.
+                    </div>';
+    }else {
+        $sql = "UPDATE users SET website_url = '$url' WHERE id = '$id'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        $user["website_url"] = $url;
+
+        $alert = '<div class="alert alert-success alert-style-light" role="alert">
+                        Benutzername wurde erfolgreich aktualisiert.
+                    </div>';
+    }
+}
+
 //DBD INFOS
 if (isset($_GET["value"]) && isset($_GET["feature"])) {
     $feature = $_GET["feature"];
@@ -106,7 +136,7 @@ if (isset($_GET["steam_id"])) {
 
 //USER BESITZT DBD
 if (!empty($user["steam_id"])) {
-    $url = 'https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=AAB98CE4EF65918FD5FE6209892F9F7E&steamid=' . $user["steam_id"];
+    $url = 'https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key='.$SteamAPIKey.'&steamid=' . $user["steam_id"];
 
     $json = file_get_contents($url);
     $myarray = json_decode($json, true);
@@ -117,6 +147,8 @@ if (!empty($user["steam_id"])) {
         }
     }
 }
+
+
 ?>
 
 <html lang="de">
@@ -186,6 +218,12 @@ include "templates/menu.php";
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="security-tab" data-bs-toggle="tab"
+                                            data-bs-target="#ecurity" type="button" role="tab"
+                                            aria-controls="security" aria-selected="true">Security
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="integrations-tab" data-bs-toggle="tab"
                                             data-bs-target="#integrations" type="button" role="tab"
                                             aria-controls="integrations" aria-selected="false">Stats
@@ -214,13 +252,20 @@ include "templates/menu.php";
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6">
+                                                <form method="post">
                                                 <label for="settingsInputEmail" class="form-label">Email
                                                     address</label>
-                                                <input type="email" class="form-control" id="settingsInputEmail"
+                                                <div class="input-group">
+                                                <input type="email" name="email" class="form-control" id="settingsInputEmail"
                                                        aria-describedby="settingsEmailHelp"
-                                                       placeholder="example@neptune.com">
-                                                <div id="settingsEmailHelp" class="form-text">We'll never share your
-                                                    email with anyone else.
+                                                       placeholder="example@sensivity.team">
+                                                <button type="submit"
+                                                        class="btn btn-primary btn-style-light"
+                                                        id="settingsNewPassword">Ändern
+                                                </button>
+                                                </form>
+                                                </div>
+                                                <div id="settingsEmailHelp" class="form-text">Muss per E-Mail bestätigt werden...
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -248,13 +293,20 @@ include "templates/menu.php";
                                             <div class="col-md-6">
                                                 <label for="settingsInputUserName"
                                                        class="form-label">Username</label>
+                                                <form method="post">
                                                 <div class="input-group">
                                                     <span class="input-group-text" id="settingsInputUserName-add">sensivity.team/</span>
-                                                    <input type="text" class="form-control"
+                                                    <input type="text" name="url" class="form-control"
                                                            id="settingsInputUserName"
+                                                           value="<?php echo $user["website_url"]; ?>"
                                                            aria-describedby="settingsInputUserName-add"
                                                            placeholder="username">
+                                                    <button type="submit"
+                                                            class="btn btn-primary btn-style-light"
+                                                            id="settingsNewPassword">Ändern
+                                                    </button>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="row m-t-lg">

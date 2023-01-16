@@ -6203,6 +6203,11 @@ span.flatpickr-weekday {
     background-size: cover
 }
 
+.app-auth-container .auth-alts .auth-alts-discord {
+    background: url(../images/icons/discord.png) no-repeat;
+    background-size: cover
+}
+
 .app-auth-container .auth-alts .auth-alts-facebook {
     background: url(../images/icons/facebook.png) no-repeat;
     background-size: cover

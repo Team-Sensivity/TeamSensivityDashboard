@@ -33,9 +33,6 @@ include "templates/menu.php";
                     </div>
                 </div>
                 <div class="row">
-
-                </div>
-                <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
@@ -45,6 +42,41 @@ include "templates/menu.php";
                                 <div id="apex2"></div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <?php
+                        $stmt = $pdo->query("SELECT * FROM points");
+
+                        while ($row = $stmt->fetch()) {
+                            if($row["discord_Id"] == $user["discord_id"]){
+                                echo '<div class="alert alert-custom" role="alert">';
+
+                                if($row["type"] == 0){
+                                    echo '<div class="custom-alert-icon icon-danger"><i
+                                    class="material-icons-outlined">keyboard_arrow_down</i></div>';
+                                }else {
+                                    echo '<div class="custom-alert-icon icon-success"><i
+                                    class="material-icons-outlined">keyboard_arrow_up</i></div>';
+                                }
+
+                        echo '<div class="alert-content">
+                            <span class="alert-title">'.$row["points"].' Punkte';
+
+                                if($row["type"] == 0){
+                                    echo "ausgegeben";
+                                }else {
+                                    echo "erhalten";
+                                }
+
+                            echo '</span>
+                            <span class="alert-text">Durch aktivität im Sprachchannel am '.date("d.m.Y, H:i", strtotime($row["datum"])).'</span>
+                        </div>
+                    </div>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

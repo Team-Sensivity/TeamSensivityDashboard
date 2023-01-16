@@ -6159,7 +6159,7 @@ font-weight: 500;
 .app-auth-container .logo a {
     display: flex;
     padding-left: 70px;
-    background: url(../images/neptune.png) no-repeat;
+    background: url(../images/logos/logo-transparent.png) no-repeat;
     height: 50px;
     background-size: 50px;
     align-items: center;
@@ -6200,6 +6200,11 @@ font-weight: 500;
 
 .app-auth-container .auth-alts .auth-alts-google {
     background: url(../images/icons/google.png) no-repeat;
+    background-size: cover
+}
+
+.app-auth-container .auth-alts .auth-alts-discord {
+    background: url(../images/icons/discord.png) no-repeat;
     background-size: cover
 }
 
