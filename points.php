@@ -50,7 +50,7 @@ include "templates/menu.php";
                         $stmt = $pdo->query("SELECT * FROM points");
 
                         while ($row = $stmt->fetch()) {
-                            if($row["discord_Id"] == $user["discord_id"]){
+                            if($row["discord_id"] == $user["discord_id"]){
                                 echo '<div class="alert alert-custom" role="alert">';
 
                                 if($row["type"] == 0){
@@ -64,14 +64,16 @@ include "templates/menu.php";
                         echo '<div class="alert-content">
                             <span class="alert-title">'.$row["points"].' Punkte';
 
+
                                 if($row["type"] == 0){
-                                    echo "ausgegeben";
+                                    echo " ausgegeben";
                                 }else {
-                                    echo "erhalten";
+                                    echo " erhalten";
                                 }
 
-                            echo '</span>
-                            <span class="alert-text">Durch aktivität im Sprachchannel am '.date("d.m.Y, H:i", strtotime($row["datum"])).'</span>
+                            echo '<span style="float:right;" class="badge badge-style-bordered badge-info">'.date("d.m.Y, H:i", strtotime($row["datum"])).'</span></span>
+                            <span class="alert-text">'.$row["grund"].'</span>
+                     
                         </div>
                     </div>';
                             }
