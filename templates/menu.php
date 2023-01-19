@@ -43,95 +43,11 @@ if (str_contains($_SERVER['SCRIPT_FILENAME'], $filename)) {
                     Games
                 </li>
                 <li>
-                    <a href="#"><i class="material-icons-two-tone">color_lens</i>League of Legends<i
-                                class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="styles-typography.html">GameStats</a>
-                        </li>
-                        <li>
-                            <a href="styles-code.html">TurnierSystem</a>
-                        </li>
-                    </ul>
+                    <a href="/games.php"><i class="material-icons-two-tone">sports_esports</i>GameStats</a>
                 </li>
                 <li>
-                    <a href="#"><i class="material-icons-two-tone">color_lens</i>Teamfight Tactics<i
-                                class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="styles-typography.html">GameStats</a>
-                        </li>
-                        <li>
-                            <a href="styles-code.html">TurnierSystem</a>
-                        </li>
-                    </ul>
+                    <a href="/games-join.php"><i class="material-icons-two-tone">dns</i>Server beitreten</a>
                 </li>
-                <li>
-                    <a href="#"><i class="material-icons-two-tone">color_lens</i>Valorant<i
-                                class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="styles-typography.html">GameStats</a>
-                        </li>
-                        <li>
-                            <a href="styles-code.html">TurnierSystem</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="material-icons-two-tone">phishing</i>Dead by Daylight<i
-                                class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="/dbd-stats.php">GameStats</a>
-                        </li>
-                        <li>
-                            <a href="tables-datatable.html">TurnierSystem</a>
-                        </li>
-                        <li>
-                            <a href="tables-datatable.html">ShrineOfSecrets</a>
-                        </li>
-                        <li>
-                            <a href="tables-datatable.html">Find a SWF</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href=""><i class="material-icons-two-tone">view_in_ar</i>Minecraft<i
-                                class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="ui-alerts.html">ServerStats</a>
-                        </li>
-                        <li>
-                            <a href="ui-avatars.html">Server beitreten</a>
-                        </li>
-                    </ul>
-                </li>
-                </li>
-                <li>
-                    <a href=""><i class="material-icons-two-tone">factory</i>Satisfactory<i
-                                class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="ui-avatars.html">Server beitreten</a>
-                        </li>
-                    </ul>
-                </li>
-                </li>
-                <li>
-                    <a href=""><i class="material-icons-two-tone">public</i>ECO<i
-                                class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="ui-alerts.html">ServerStats</a>
-                        </li>
-                        <li>
-                            <a href="ui-avatars.html">Server beitreten</a>
-                        </li>
-                    </ul>
-                </li>
-
                 <li class="sidebar-title">
                     Administration
                 </li>

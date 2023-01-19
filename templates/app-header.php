@@ -18,7 +18,7 @@
                             <i class="material-icons">add</i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="addDropdownLink">
-                            <li><a class="dropdown-item" href="#">New Workspace</a></li>
+                            <li><a class="dropdown-item" href="#">Neues Ticket</a></li>
                             <li><a class="dropdown-item" href="#">New Board</a></li>
                             <li><a class="dropdown-item" href="#">Create Project</a></li>
                         </ul>
@@ -26,12 +26,12 @@
                     <li class="nav-item dropdown hidden-on-mobile">
                         <a class="nav-link dropdown-toggle" href="#" id="exploreDropdownLink" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="material-icons-outlined">explore</i>
+                            <i class="material-icons-outlined">campaign</i>
                         </a>
                         <ul class="dropdown-menu dropdown-lg large-items-menu"
                             aria-labelledby="exploreDropdownLink">
                             <li>
-                                <h6 class="dropdown-header">Repositories</h6>
+                                <h6 class="dropdown-header">Neuigkeiten</h6>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">
@@ -54,7 +54,7 @@
                                 </a>
                             </li>
                             <li class="dropdown-btn-item d-grid">
-                                <button class="btn btn-primary">Create new repository</button>
+                                <button class="btn btn-primary">Alle Neuigkeiten</button>
                             </li>
                         </ul>
                     </li>

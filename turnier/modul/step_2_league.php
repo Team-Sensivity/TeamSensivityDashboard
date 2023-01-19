@@ -8,7 +8,7 @@ include "functions.php";
 
 $end = 0;
 if (isset($_GET["turniername"]) && !isset($_POST["turniername"])) {
-    $_SESSION["providerid"] = getProviderID("RGAPI-1bf3cf83-aa92-43cd-8e4b-9bf333063cde", $_GET["turniername"]);
+    $_SESSION["providerid"] = getProviderID($RiotAPIKey, $_GET["turniername"]);
 } else if (isset($_POST["turniername"]) && isset($_SESSION["providerid"])) {
     $fehler = 0;
 

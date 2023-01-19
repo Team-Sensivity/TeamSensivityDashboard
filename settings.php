@@ -213,13 +213,13 @@ include "templates/menu.php";
                                     <button class="nav-link <?php if ((isset($_GET["steam_id"]) || isset($_GET["riot_id"]) || $active == "connect") && $active != "dbd") {
                                         echo "active";
                                     } ?>" id="security-tab" data-bs-toggle="tab"
-                                            data-bs-target="#security" type="button" role="tab"
-                                            aria-controls="security" aria-selected="false">Verknüpfungen
+                                            data-bs-target="#verknupfen" type="button" role="tab"
+                                            aria-controls="verknupfen" aria-selected="false">Verknüpfungen
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="security-tab" data-bs-toggle="tab"
-                                            data-bs-target="#ecurity" type="button" role="tab"
+                                            data-bs-target="#security" type="button" role="tab"
                                             aria-controls="security" aria-selected="true">Security
                                     </button>
                                 </li>
@@ -243,12 +243,9 @@ include "templates/menu.php";
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade <?php if (!(isset($_GET["steam_id"]) || isset($_GET["riot_id"])  || $active == "connect") && $active != "dbd") {
-                                echo "show active";
-                            } ?>" id="account" role="tabpanel"
-                                 aria-labelledby="account-tab">
-                                <div class="card">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade <?php if (!(isset($_GET["steam_id"]) || isset($_GET["riot_id"])  || $active == "connect") && $active != "dbd") { echo "show active"; } ?>" id="account" role="tabpanel" aria-labelledby="account-tab">
+                                    <div class="card">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -333,221 +330,250 @@ include "templates/menu.php";
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane fade <?php if ((isset($_GET["steam_id"]) || isset($_GET["riot_id"])  || $active == "connect") && $active != "dbd") {
-                                echo "show active";
-                            } ?>" id="security" role="tabpanel" aria-labelledby="security-tab">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="settings-security-two-factor">
-                                            <h5>Accounts verknüpfen</h5>
-                                            <span>Um alle funktionen des Team Sensivity Dashboards zu nutzen musst du deine GameAccounts verknüpfen. Dadurch kannst du deine Stats ansehen Achievements sammeln und vieles mehr. Eine Liste mit allen Vorteilen findest du <a
-                                                        href="#">hier</a>.</span>
-                                        </div>
-                                        <div class="row m-t-xxl">
-                                            <div class="col-md-6">
-                                                <form method="get">
-                                                    <label for="settingsCurrentPassword"
-                                                           class="form-label">SteamAccount</label>
-                                                    <div class="input-group">
-                                                        <input name="steam_id" type="text" class="form-control"
-                                                               placeholder="Bsp.: 765618973584321534" required <?php if(isset($user["steam_id"])){echo 'disabled value="'.$user["steam_id"].'"';}  ?>>
-                                                        <button type="submit"
-                                                                class="btn btn-primary btn-style-light"
-                                                                id="settingsResentSmsCode" <?php if(isset($user["steam_id"])){echo 'disabled';}  ?>>Add
-                                                        </button>
-                                                    </div>
-                                                    <div class="form-text">You must be in the following
-                                                        <a href="https://steamcommunity.com/groups/TeamSensivityy"
-                                                           target="_blank">SteamGroup</a>
-                                                        to
-                                                        be verified
-                                                    </div>
-                                                </form>
+                                </div>
+                                <div class="tab-pane fade <?php if ((isset($_GET["steam_id"]) || isset($_GET["riot_id"])  || $active == "connect") && $active != "dbd") { echo "show active"; } ?>" id="verknupfen" role="tabpanel" aria-labelledby="security-tab">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="settings-security-two-factor">
+                                                <h5>Accounts verknüpfen</h5>
+                                                <span>Um alle funktionen des Team Sensivity Dashboards zu nutzen musst du deine GameAccounts verknüpfen. Dadurch kannst du deine Stats ansehen Achievements sammeln und vieles mehr. Eine Liste mit allen Vorteilen findest du <a
+                                                            href="#">hier</a>.</span>
                                             </div>
-                                        </div>
-                                        <div class="row m-t-xxl">
-                                            <div class="col-md-6">
-                                                <label for="settingsNewPassword" class="form-label">Riot
-                                                    SummonerName</label>
-                                                <form method="get">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control"
-                                                               aria-describedby="settingsNewPassword"
-                                                               placeholder="Bsp.: michel929" name="riot_id"
-                                                               required <?php if(isset($user["riot_puuid"])){echo 'disabled value="'.$user["summoner_name"].'"';}  ?>>
-                                                        <button type="submit"
-                                                                class="btn btn-primary btn-style-light"
-                                                                id="settingsNewPassword" <?php if(isset($user["steam_id"])){echo 'disabled';}  ?>>Add
-                                                        </button>
-                                                    </div>
-                                                </form>
+                                            <div class="row m-t-xxl">
+                                                <div class="col-md-6">
+                                                    <form method="get">
+                                                        <label for="settingsCurrentPassword"
+                                                               class="form-label">SteamAccount</label>
+                                                        <div class="input-group">
+                                                            <input name="steam_id" type="text" class="form-control"
+                                                                   placeholder="Bsp.: 765618973584321534" required <?php if(isset($user["steam_id"])){echo 'disabled value="'.$user["steam_id"].'"';}  ?>>
+                                                            <button type="submit"
+                                                                    class="btn btn-primary btn-style-light"
+                                                                    id="settingsResentSmsCode" <?php if(isset($user["steam_id"])){echo 'disabled';}  ?>>Add
+                                                            </button>
+                                                        </div>
+                                                        <div class="form-text">You must be in the following
+                                                            <a href="https://steamcommunity.com/groups/TeamSensivityy"
+                                                               target="_blank">SteamGroup</a>
+                                                            to
+                                                            be verified
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row m-t-xxl">
-                                            <div class="col-md-6">
-                                                <label for="settingsConfirmPassword" class="form-label">Confirm
-                                                    Password</label>
-                                                <input type="password" class="form-control"
-                                                       aria-describedby="settingsConfirmPassword"
-                                                       placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+                                            <div class="row m-t-xxl">
+                                                <div class="col-md-6">
+                                                    <label for="settingsNewPassword" class="form-label">Riot
+                                                        SummonerName</label>
+                                                    <form method="get">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control"
+                                                                   aria-describedby="settingsNewPassword"
+                                                                   placeholder="Bsp.: michel929" name="riot_id"
+                                                                   required <?php if(isset($user["riot_puuid"])){echo 'disabled value="'.$user["summoner_name"].'"';}  ?>>
+                                                            <button type="submit"
+                                                                    class="btn btn-primary btn-style-light"
+                                                                    id="settingsNewPassword" <?php if(isset($user["steam_id"])){echo 'disabled';}  ?>>Add
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row m-t-xxl">
-                                            <div class="col-md-6">
-                                                <label for="settingsSmsCode" class="form-label">SMS Code</label>
-                                                <div class="input-group">
+                                            <div class="row m-t-xxl">
+                                                <div class="col-md-6">
+                                                    <label for="settingsConfirmPassword" class="form-label">Confirm
+                                                        Password</label>
                                                     <input type="password" class="form-control"
-                                                           aria-describedby="settingsSmsCode"
-                                                           placeholder="&#9679;&#9679;&#9679;&#9679;">
-                                                    <button class="btn btn-primary btn-style-light"
-                                                            id="settingsResentSmsCode">Resend
-                                                    </button>
-                                                </div>
-                                                <div id="settingsSmsCode" class="form-text">Code will be sent to the
-                                                    phone number from your account.
+                                                           aria-describedby="settingsConfirmPassword"
+                                                           placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row m-t-lg">
-                                            <div class="col">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                           id="settingsPasswordLogout" checked>
-                                                    <label class="form-check-label" for="settingsPasswordLogout">
-                                                        Log out from all current sessions
-                                                    </label>
-                                                </div>
-                                                <a href="#" class="btn btn-primary m-t-sm">Change Password</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="integrations" role="tabpanel"
-                                 aria-labelledby="integrations-tab">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="settings-integrations">
-                                            <div class="settings-integrations-item">
-                                                <div class="settings-integrations-item-info">
-                                                    <img src="assets/images/logos/games/lol-logo.png"
-                                                         alt="">
-                                                    <span>Plan, track, and manage your agile and software development projects in Jira.</span>
-                                                </div>
-                                                <div class="settings-integrations-item-switcher">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input form-control-md"
-                                                               type="checkbox" id="settingsIntegrationOneSwitcher"
-                                                               checked>
+                                            <div class="row m-t-xxl">
+                                                <div class="col-md-6">
+                                                    <label for="settingsSmsCode" class="form-label">SMS Code</label>
+                                                    <div class="input-group">
+                                                        <input type="password" class="form-control"
+                                                               aria-describedby="settingsSmsCode"
+                                                               placeholder="&#9679;&#9679;&#9679;&#9679;">
+                                                        <button class="btn btn-primary btn-style-light"
+                                                                id="settingsResentSmsCode">Resend
+                                                        </button>
+                                                    </div>
+                                                    <div id="settingsSmsCode" class="form-text">Code will be sent to the
+                                                        phone number from your account.
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="settings-integrations-item">
-                                                <div class="settings-integrations-item-info">
-                                                    <img src="assets/images/logos/games/dbd-logo-w.svg" alt="">
-                                                    <span>Build, organize, and collaborate on work in one place from virtually anywhere.</span>
-                                                </div>
-                                                <div class="settings-integrations-item-switcher">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input form-control-md"
-                                                               type="checkbox" id="settingsIntegrationTwoSwitcher"
-                                                               checked>
+                                            <div class="row m-t-lg">
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               id="settingsPasswordLogout" checked>
+                                                        <label class="form-check-label" for="settingsPasswordLogout">
+                                                            Log out from all current sessions
+                                                        </label>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="settings-integrations-item">
-                                                <div class="settings-integrations-item-info">
-                                                    <img src="assets/images/logos/games/minecraft-logo.png" alt="">
-                                                    <span>Build, test, and deploy with unlimited private or public space with Bitbucket.</span>
-                                                </div>
-                                                <div class="settings-integrations-item-switcher">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input form-control-md"
-                                                               type="checkbox"
-                                                               id="settingsIntegrationThreeSwitcher">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="settings-integrations-item">
-                                                <div class="settings-integrations-item-info">
-                                                    <img src="../../assets/images/icons/sourcetree.png" alt="">
-                                                    <span>A Git GUI that offers a visual representation of your repositories.</span>
-                                                </div>
-                                                <div class="settings-integrations-item-switcher">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input form-control-md"
-                                                               type="checkbox" id="settingsIntegrationFourSwitcher">
-                                                    </div>
+                                                    <a href="#" class="btn btn-primary m-t-sm">Change Password</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane fade <?php if ($active == "dbd") {
-                                echo "show active";
-                            } ?>" id="dbd" role="tabpanel"
-                                 aria-labelledby="integrations-tab">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row m-t-xxl">
-                                            <div class="col-md-12">
-                                                <label for="dbd_main" class="form-label">Killer oder Survivor
-                                                    Main</label>
-                                                <div class="input-group">
-                                                    <select class="form-select" aria-label="main-select"
-                                                            id="dbd_main" onchange="update('dbd_main')">
-                                                        <option <?php if (empty($user["dbd_main"])) {
-                                                            echo "selected";
-                                                        } ?>>Select Main
-                                                        </option>
-                                                        <option <?php if ($user["dbd_main"] == "s") {
-                                                            echo "selected";
-                                                        } ?> value="s">Survivor
-                                                        </option>
-                                                        <option <?php if ($user["dbd_main"] == "k") {
-                                                            echo "selected";
-                                                        } ?> value="k">Killer
-                                                        </option>
-                                                    </select>
+                                <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row m-t-xxl">
+                                                <div class="col-md-6">
+                                                    <label for="settingsConfirmPassword" class="form-label">Neues Passwort</label>
+                                                    <input type="password" class="form-control"
+                                                           aria-describedby="settingsConfirmPassword"
+                                                           placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+                                                </div>
+                                            </div>
+                                            <div class="row m-t-xxl">
+                                                <div class="col-md-6">
+                                                    <label for="settingsConfirmPassword" class="form-label">Passwort wiederholen</label>
+                                                    <input type="password" class="form-control"
+                                                           aria-describedby="settingsConfirmPassword"
+                                                           placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+                                                </div>
+                                            </div>
+                                            <div class="row m-t-lg">
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               id="settingsPasswordLogout" checked>
+                                                        <label class="form-check-label" for="settingsPasswordLogout">
+                                                            Log out from all current sessions
+                                                        </label>
+                                                    </div>
+                                                    <a href="#" class="btn btn-primary m-t-sm">Change Password</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row m-t-xxl">
-                                            <p>Wähle deinen Survivor Main</p>
-                                            <div class="row">
-                                                <?php
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="integrations" role="tabpanel" aria-labelledby="integrations-tab">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="settings-integrations">
+                                                <div class="settings-integrations-item">
+                                                    <div class="settings-integrations-item-info">
+                                                        <img src="assets/images/logos/games/lol-logo.png"
+                                                             alt="">
+                                                        <span>Plan, track, and manage your agile and software development projects in Jira.</span>
+                                                    </div>
+                                                    <div class="settings-integrations-item-switcher">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input form-control-md"
+                                                                   type="checkbox" id="settingsIntegrationOneSwitcher"
+                                                                   checked>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="settings-integrations-item">
+                                                    <div class="settings-integrations-item-info">
+                                                        <img src="assets/images/logos/games/dbd-logo-w.svg" alt="">
+                                                        <span>Build, organize, and collaborate on work in one place from virtually anywhere.</span>
+                                                    </div>
+                                                    <div class="settings-integrations-item-switcher">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input form-control-md"
+                                                                   type="checkbox" id="settingsIntegrationTwoSwitcher"
+                                                                   checked>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="settings-integrations-item">
+                                                    <div class="settings-integrations-item-info">
+                                                        <img src="assets/images/logos/games/minecraft-logo.png" alt="">
+                                                        <span>Build, test, and deploy with unlimited private or public space with Bitbucket.</span>
+                                                    </div>
+                                                    <div class="settings-integrations-item-switcher">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input form-control-md"
+                                                                   type="checkbox"
+                                                                   id="settingsIntegrationThreeSwitcher">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="settings-integrations-item">
+                                                    <div class="settings-integrations-item-info">
+                                                        <img src="../../assets/images/icons/sourcetree.png" alt="">
+                                                        <span>A Git GUI that offers a visual representation of your repositories.</span>
+                                                    </div>
+                                                    <div class="settings-integrations-item-switcher">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input form-control-md"
+                                                                   type="checkbox" id="settingsIntegrationFourSwitcher">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade <?php if ($active == "dbd") {echo "show active"; } ?>" id="dbd" role="tabpanel" aria-labelledby="integrations-tab">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row m-t-xxl">
+                                                <div class="col-md-12">
+                                                    <label for="dbd_main" class="form-label">Killer oder Survivor
+                                                        Main</label>
+                                                    <div class="input-group">
+                                                        <select class="form-select" aria-label="main-select"
+                                                                id="dbd_main" onchange="update('dbd_main')">
+                                                            <option <?php if (empty($user["dbd_main"])) {
+                                                                echo "selected";
+                                                            } ?>>Select Main
+                                                            </option>
+                                                            <option <?php if ($user["dbd_main"] == "s") {
+                                                                echo "selected";
+                                                            } ?> value="s">Survivor
+                                                            </option>
+                                                            <option <?php if ($user["dbd_main"] == "k") {
+                                                                echo "selected";
+                                                            } ?> value="k">Killer
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row m-t-xxl">
+                                                <p>Wähle deinen Survivor Main</p>
+                                                <div class="row">
+                                                    <?php
 
-                                                $stmt = $pdo->query("SELECT * FROM dbd_chars WHERE rolle = 'Survivor'");
+                                                    $stmt = $pdo->query("SELECT * FROM dbd_chars WHERE rolle = 'Survivor'");
 
-                                                while ($row = $stmt->fetch()) {
-                                                    echo '<div class="col-md-1" style="padding-right: 120px; padding-bottom: 10px;">
+                                                    while ($row = $stmt->fetch()) {
+                                                        echo '<div class="col-md-1" style="padding-right: 120px; padding-bottom: 10px;">
                                                     <a href="?feature=survivor_main&value=' . $row["id"] . '&active=dbd"><img class="cover-img ';
-                                                    if($user["survivor_main"] == $row["id"]){
-                                                        echo 'active';
-                                                    }
-                                                    echo '" alt="' . $row["name"] . '" src="assets/images/dbd/survivor/portrait/' . $row["pb"] . '.jpg"  width="120px" height="175"></a>
+                                                        if($user["survivor_main"] == $row["id"]){
+                                                            echo 'active';
+                                                        }
+                                                        echo '" alt="' . $row["name"] . '" src="assets/images/dbd/survivor/portrait/' . $row["pb"] . '.jpg"  width="120px" height="175"></a>
                                                 </div>';
-                                                }
-                                                ?>
-                                            </div>
-                                            <p style="margin-top: 20px;">Wähle deinen Killer Main</p>
-                                            <div class="row">
-                                                <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <p style="margin-top: 20px;">Wähle deinen Killer Main</p>
+                                                <div class="row">
+                                                    <?php
 
-                                                $stmt = $pdo->query("SELECT * FROM dbd_chars WHERE rolle = 'Killer'");
+                                                    $stmt = $pdo->query("SELECT * FROM dbd_chars WHERE rolle = 'Killer'");
 
-                                                while ($row = $stmt->fetch()) {
-                                                    echo '<div class="col-md-1" style="padding-right: 120px; padding-bottom: 10px;">
+                                                    while ($row = $stmt->fetch()) {
+                                                        echo '<div class="col-md-1" style="padding-right: 120px; padding-bottom: 10px;">
                                                     <a href="?feature=killer_main&value=' . $row["id"] . '&active=dbd"><img class="cover-img ';
-                                                    if($user["killer_main"] == $row["id"]){
-                                                        echo 'active';
-                                                    }
-                                                    echo '" alt="' . $row["name"] . '" src="assets/images/dbd/killer/portrait/' . $row["pb"] . '.jpg"  width="120px" height="175"></a>
+                                                        if($user["killer_main"] == $row["id"]){
+                                                            echo 'active';
+                                                        }
+                                                        echo '" alt="' . $row["name"] . '" src="assets/images/dbd/killer/portrait/' . $row["pb"] . '.jpg"  width="120px" height="175"></a>
                                                 </div>';
-                                                }
-                                                ?>
+                                                    }
+                                                    ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -555,11 +581,9 @@ include "templates/menu.php";
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <?php
 include "templates/javascript.html";
