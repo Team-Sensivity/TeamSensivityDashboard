@@ -6516,6 +6516,12 @@ span.flatpickr-weekday {
     }
 }
 
+@media screen and (min-width: 576px) {
+    .hidden-on-pc {
+        display: none !important
+    }
+}
+
 @media (max-width: 576px) {
     .app-container {
         padding: 10px

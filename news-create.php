@@ -96,6 +96,7 @@ include "templates/menu.php";
                 </div>
                 </form>
             </div>
+            <?php include "templates/footer.html"; ?>
         </div>
     </div>
 </div>

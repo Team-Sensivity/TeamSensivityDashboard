@@ -48,6 +48,9 @@ if (str_contains($_SERVER['SCRIPT_FILENAME'], $filename)) {
                 <li>
                     <a href="/games-join.php"><i class="material-icons-two-tone">dns</i>Server beitreten</a>
                 </li>
+                <li>
+                    <a href="/games-join.php"><i class="material-icons-two-tone">emoji_events</i>Turnierübersicht</a>
+                </li>
                 <li class="sidebar-title">
                     Administration
                 </li>
@@ -108,6 +111,19 @@ if (str_contains($_SERVER['SCRIPT_FILENAME'], $filename)) {
                 <li>
                     <a href="/servermanagement/minecraft-server.php"><i class="material-icons-two-tone">view_in_ar</i>Minecraft
                         Server</a>
+                </li>
+
+                <li class="sidebar-title hidden-on-pc">
+                    
+                </li>
+                <li class="hidden-on-pc">
+                    <a href="https://sensivity.team/impressum.php">Impressum</a>
+                </li>
+                <li class="hidden-on-pc">
+                    <a href="https://sensivity.team/datenschutz.php">Datenschutz</a>
+                </li>
+                <li class="hidden-on-pc">
+                    <a href="https://status.sensivity.team/">Status</a>
                 </li>
             </ul>
         </div>

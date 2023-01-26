@@ -270,6 +270,7 @@ while ($row = $stmt->fetch()) {
                     </div>
                 </div>
             </div>
+            <?php include "templates/footer.html"; ?>
         </div>
     </div>
 </div>

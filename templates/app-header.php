@@ -4,6 +4,7 @@
     </form>
     <a href="#" class="toggle-search"><i class="material-icons">close</i></a>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
 <div class="app-header">
     <nav class="navbar navbar-light navbar-expand-lg">
         <div class="container-fluid">
