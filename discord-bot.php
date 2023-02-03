@@ -36,7 +36,7 @@ while ($row = $stmt->fetch()) {
     $connect_cmd = $row["cmd_connect_on"];
     $swf_cmd = $row["cmd_swf_on"];
     $daily_cmd = $row["cmd_daily_on"];
-    $punkte_cmd = $row["cmd_points_cmd"];
+    $punkte_cmd = $row["cmd_points_on"];
     $token_cmd = $row["cmd_token_on"];
     $music_cmd = $row["cmd_music_on"];
 

@@ -34,7 +34,7 @@ function getLastMonth($id)
         if ($id == $row["discord_Id"]) {
             $datum = explode("-", $row["firstDate"]);
             if ($datum[1] == date("m", strtotime("-1 month"))) {
-                $i = $i + $row["mminuten"];
+                $i = $i + $row["minuten"];
             }
         }
     }
@@ -162,6 +162,18 @@ function check_user()
 function is_checked_in()
 {
     return isset($_SESSION['userid']);
+}
+
+function getConnections($discord_id){
+ 	global $pdo;
+	$aData = array();
+
+ 	$stmt = $pdo->query("SELECT * FROM connections");
+    	while ($row = $stmt->fetch()) {
+		$aData[$row["type"]] = array("connect_id" => $row["connect_id"], "connect_name" => $row["connect_name"]);
+	}
+
+        return $aData;
 }
 
 /**

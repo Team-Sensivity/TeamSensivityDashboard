@@ -10,8 +10,8 @@ $user = check_user();
 if (empty($user["steam_id"])) {
     header("Location: no-account.php");
 } else {
-    $urls = 'https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=381210&key=AAB98CE4EF65918FD5FE6209892F9F7E&steamid=' . $user['steam_id'];
-}
+    $urls = 'https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=381210&key=$SteamAPIKey&steamid=' . $user['steam_id'];
+    }
 
 $json = file_get_contents($urls);
 $myarray = json_decode($json, true);
