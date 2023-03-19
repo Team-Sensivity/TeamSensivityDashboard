@@ -168,7 +168,7 @@ function getConnections($discord_id){
  	global $pdo;
 	$aData = array();
 
- 	$stmt = $pdo->query("SELECT * FROM connections");
+ 	$stmt = $pdo->query("SELECT * FROM connections WHERE discord_id = '$discord_id'");
     	while ($row = $stmt->fetch()) {
 		$aData[$row["type"]] = array("connect_id" => $row["connect_id"], "connect_name" => $row["connect_name"]);
 	}

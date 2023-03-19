@@ -6,11 +6,12 @@ require_once("inc/functions.inc.php");
 //Überprüfe, dass der User eingeloggt ist
 //Der Aufruf von check_user() muss in alle internen Seiten eingebaut sein
 $user = check_user();
+$connections = getConnections($user["discord_id"]);
 
 if (empty($user["steam_id"])) {
     header("Location: no-account.php");
 } else {
-    $urls = 'https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=381210&key=$SteamAPIKey&steamid=' . $user['steam_id'];
+    $urls = 'https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=381210&key='.$SteamAPIKey.'&steamid=' . $connections["steam"]["connect_id"];
     }
 
 $json = file_get_contents($urls);

@@ -4,6 +4,11 @@ require_once("inc/config.inc.php");
 require_once("inc/functions.inc.php");
 
 $error_msg = "";
+
+if(isset($_GET["error"])){
+    $error_msg = $_GET["error"];
+}
+
 if (isset($_POST['email']) && isset($_POST['passwort'])) {
     $email = $_POST['email'];
     $passwort = $_POST['passwort'];
@@ -55,8 +60,7 @@ include "templates/head.html";
         <div class="logo">
             <a href="index.html">Team Sensivity</a>
         </div>
-        <p class="auth-description">Du möchtest dich mit Discord anmelden? <a href="discord-login.php">Hier
-                klicken...</a></p>
+        <p class="auth-description">Du hast noch keinen Account? <a href="/register.php">Registrieren ...</a></p>
 
         <?php
         if (isset($error_msg) && !empty($error_msg)) {
@@ -82,7 +86,10 @@ include "templates/head.html";
         </form>
         <div class="divider"></div>
         <div class="auth-alts">
-            <a href="/discord-login.php" class="auth-alts-google"></a>
+            
+<!-- <a href="https://discord.com/api/oauth2/authorize?client_id=917069851191816262&redirect_uri=https%3A%2F%2Fdashboard.sensivity.team%2Fconnect%2Fdiscord%2Fregister.php&response_type=code&scope=connections%20identify%20role_connections.write" class="auth-alts-discord"></a> -->
+            <a href="/connect/steam/login-openId.php" class="auth-alts-steam"></a>
+            
         </div>
     </div>
 </div>

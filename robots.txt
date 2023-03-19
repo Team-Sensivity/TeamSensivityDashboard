@@ -1,0 +1,22 @@
+User-agent: *
+Disallow: /dbd-stats.php
+Disallow: /discord-bot.php
+Disallow: /discord-login.php
+Disallow: /register.php
+Disallow: /games.php
+Disallow: /games-join.php
+Disallow: /module
+Disallow: /servermanagement
+Disallow: /turnier
+Disallow: /logout.php
+Disallow: /news
+Disallow: /passwort
+Disallow: /connect
+Disallow: /error
+Disallow: /points.php
+Disallow: /search.php
+Disallow: /settings.php
+Disallow: /website-einstellungen.php
+Disallow: /login.php
+
+Sitemap: https://dashboard.sensivity.team/sitemap.xml

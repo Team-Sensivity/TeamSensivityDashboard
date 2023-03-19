@@ -401,7 +401,7 @@ if(date("N", strtotime("now")) == 1){
         },
         series: [{
             name: 'Punkte erhalten',
-            data: [<?php $stmt = $pdo->query("SELECT * FROM online ORDER BY firstDate DESC");
+            data: [<?php $stmt = $pdo->query("SELECT * FROM online ORDER BY firstDate DESC LIMIT 100");
             $min = 0;
                 while ($row = $stmt->fetch()) {
                     if($row["discord_Id"] == $user["discord_id"]){
@@ -414,7 +414,13 @@ if(date("N", strtotime("now")) == 1){
                 }
                 ?>]
         }],
-        labels: [1, 2, 3],
+        labels: [<?php $stmt = $pdo->query("SELECT * FROM online ORDER BY firstDate DESC LIMIT 100");
+            while ($row = $stmt->fetch()) {
+                if($row["discord_Id"] == $user["discord_id"]){
+                    echo $row["minuten"].',';
+                }
+            }
+            ?>],
         yaxis: {
             min: 0,
             max: <?php echo $min + 100; ?>

@@ -6208,6 +6208,12 @@ span.flatpickr-weekday {
     background-size: cover
 }
 
+.app-auth-container .auth-alts .auth-alts-steam {
+    background: url(../images/icons/steam.png) no-repeat;
+    background-size: cover
+}
+
+
 .app-auth-container .auth-alts .auth-alts-facebook {
     background: url(../images/icons/facebook.png) no-repeat;
     background-size: cover

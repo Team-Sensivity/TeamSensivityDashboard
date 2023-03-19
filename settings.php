@@ -12,24 +12,17 @@ $dbd = 0;
 $active = "";
 $id = $user["id"];
 
-//ConnectSteamAccount
-if(isset($_GET["steam_connect_id"]) && isset($_GET["steam_connect_name"])){
-    $connect_id = $_GET["steam_connect_id"];
-    $connect_name = $_GET["steam_connect_name"];
+//REMOVE STEAMID
+if(isset($_GET["remove"])){
     $discord_id = $user["discord_id"];
+    $type = $_GET["remove"];
+    $sql = "DELETE FROM connections WHERE discord_id = '$discord_id' AND type = '$type'";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
 
-    if(empty($connections["steam"])){
- 		$sql = "INSERT INTO connections (discord_id, type, connect_id, connect_name) VALUES ('$discord_id','steam','$connect_id','$connect_name')";
- 		$stmt = $pdo->prepare($sql);
- 		$stmt->execute();
-	}else {
-		$sql = "UPDATE connections SET connect_id = '$connect_id', connect_name = '$connect_name' WHERE discord_id = '$discord_id' AND type = 'steam'";
-		$stmt = $pdo->prepare($sql);
- 		$stmt->execute();
-    }
-
-    $connections["steam"] = array("connect_id" => $connect_id, "connect_name" => $connect_name);
+    $connections = getConnections($user["discord_id"]);
 }
+
 //UpdateURL
 if (isset($_POST["url"])) {
     $url = $_POST["url"];
@@ -324,16 +317,19 @@ include "templates/menu.php";
                                         <div class="col-md-6">
                                             <?php if (isset($connections["steam"]["connect_id"])) {
                                                 echo '
-                                                            <form method="get">
+                                                <form method="post" action="?remove=steam">
                                                         <label for="settingsCurrentPassword"
                                                                class="form-label">SteamAccount</label>
                                                         <div class="input-group">
                                                             <input name="steam_id" type="text" class="form-control"
-                                                                   placeholder="Bsp.: 765618973584321534" required disabled value="' . $connections["steam"]["connect_id"] . '">
-                                                            
+                                                                   placeholder="Bsp.: 765618973584321534" required disabled value="' . $connections["steam"]["connect_id"] . ' (' . $connections["steam"]["connect_name"] . ')">
+                                                            <button type="submit"
+                                                            class="btn btn-danger btn-style-light"
+                                                            id="settingsNewPassword">Remove
+                                                    </button>
                                                                 </div>
-                                               
-                                                    </form>';
+                                                                </form>
+                                               ';
                                             } else {
                                                 echo '
                                                                  <div class="d-grid gap-2">
